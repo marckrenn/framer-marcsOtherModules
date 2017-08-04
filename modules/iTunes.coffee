@@ -1,5 +1,5 @@
 
-urlEncode = (url, keyValues) ->
+exports.urlEncode = (url, keyValues) ->
 
 	updateQueryString = (key, value, url) ->
 		re = new RegExp("([?&])#{key}=.*?(&|#|$)(.*)", "gi")
