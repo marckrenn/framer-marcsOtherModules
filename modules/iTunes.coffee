@@ -1,4 +1,42 @@
 
+urlEncode = (url, keyValues) ->
+
+	updateQueryString = (key, value, url) ->
+		re = new RegExp("([?&])#{key}=.*?(&|#|$)(.*)", "gi")
+		hash = undefined
+
+		if re.test(url)
+
+			if typeof value isnt "undefined" and value isnt null
+				url.replace(re, "$1#{key}=#{value}$2$3")
+
+			else
+				hash = url.split("#")
+				url = hash[0].replace(re, "$1$3").replace(/(&|\?)$/, "")
+				url += "##{hash[1]}" if typeof hash[1] isnt "undefined" and hash[1] isnt null
+				return url
+
+		else
+
+			if typeof value isnt "undefined" and value isnt null
+				separator = if url.indexOf("?") isnt -1 then "&" else "?"
+				hash = url.split("#")
+				url = "#{hash[0]}#{separator}#{key}=#{value}"
+				url += "##{hash[1]}" if typeof hash[1] isnt "undefined" and hash[1] isnt null
+				return url
+
+			else url
+
+	string = newUrl = ""
+
+	for key, value of keyValues
+
+		newUrl = url if newUrl is ""
+		string = newUrl = updateQueryString(key, value, newUrl)
+
+	return string
+
+
 exports.iTunes = {
 
 	_queryItunes: (path, query, callback) ->
