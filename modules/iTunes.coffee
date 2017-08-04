@@ -2,7 +2,7 @@
 
 exports.iTunes = {
 
-	_urlEncode = (url, keyValues) ->
+	_urlEncode: (url, keyValues) ->
 
 		updateQueryString = (key, value, url) ->
 			re = new RegExp("([?&])#{key}=.*?(&|#|$)(.*)", "gi")
