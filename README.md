@@ -9,3 +9,4 @@ A collection of my other Framer modules that don't necessarily need their own re
 | :---:   | :---                                                            |
 | **DrumComponent**  | [DrumComponent example](https://framer.cloud/NmVja/) |
 | **FaderComponent** | [FaderComponent example](https://framer.cloud/uHZiS) |
+| **ListComponent**  | [ListComponent example](https://framer.cloud/TciZX)  |
