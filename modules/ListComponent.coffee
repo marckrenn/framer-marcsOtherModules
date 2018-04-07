@@ -92,7 +92,7 @@ class exports.ListComponent extends Framer.Layer
 		return unless value
 		if value.match(/\.(jpeg|jpg|gif|png|svg)$/) isnt null
 			layer.image = value
-		else if Color.isColor(value)
+		else if Color.isColorString(value)
 			layer.backgroundColor = value
 		else if typeof value is "string"
 			layer.text = value
